@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIG S CAR — Voitures de Luxe et Véhicules Premium en Côte d'Ivoire</title>
+  <meta name="description" content="Découvrez BIG S CAR, spécialiste de la vente de voitures de luxe et de véhicules premium en Côte d'Ivoire. Mercedes-Benz, BMW, Audi, Porsche, Range Rover, Bentley et bien plus.">
+  <meta name="keywords" content="voiture de luxe Abidjan, concessionnaire automobile Côte d'Ivoire, Mercedes Abidjan, Porsche Côte d'Ivoire, Range Rover Abidjan, BMW XM, Bentley Afrique">
+  <meta name="author" content="BIG S CAR">
+  
+  <!-- OpenGraph / Réseaux Sociaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BIG S CAR — Voitures de Luxe et Véhicules Premium">
+  <meta property="og:description" content="L'excellence automobile à votre portée en Côte d'Ivoire. Découvrez notre catalogue exclusif de véhicules prestigieux.">
+  <meta property="og:image" content="assets/images/hero-bg.jpg">
+  
+  <!-- Google Fonts: Outfit (Titres) & Plus Jakarta Sans (Corps) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Favicon SVG Dynamique -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C9A227'%3E%3Cpath d='M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z'/%3E%3Ccircle cx='7.5' cy='14.5' r='1.5'/%3E%3Ccircle cx='16.5' cy='14.5' r='1.5'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="header" id="header">
+    <div class="container nav-container">
+      <!-- Logo de prestige -->
+      <a href="#accueil" class="nav-logo" aria-label="Accueil BIG S CAR">
+        <div class="logo-crest">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title">BIG S <span class="text-gold">CAR</span></span>
+          <span class="logo-subtitle">Automobiles de Luxe</span>
+        </div>
+      </a>
+
+      <!-- Menu Principal Desktop -->
+      <nav class="nav-menu" aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="#accueil" class="nav-link">Accueil</a></li>
+          <li><a href="#vehicules" class="nav-link">Véhicules</a></li>
+          <li><a href="#marques" class="nav-link">Marques</a></li>
+          <li><a href="#pourquoi-nous" class="nav-link">À propos</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA Header & Hamburger Mobile -->
+      <div class="nav-actions">
+        <a href="#vehicules" class="btn btn-gold btn-sm d-none-mobile">
+          <span>Voir nos véhicules</span>
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+
+        <!-- Hamburger Icon Mobile -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Ouvrir le menu de navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu Mobile Latéral -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Navigation Mobile">
+    <div class="mobile-nav-header">
+      <div class="nav-logo">
+        <div class="logo-crest">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title">BIG S <span class="text-gold">CAR</span></span>
+          <span class="logo-subtitle">Automobiles de Luxe</span>
+        </div>
+      </div>
+    </div>
+
+    <ul class="mobile-nav-links">
+      <li><a href="#accueil" class="mobile-nav-link">Accueil <span>→</span></a></li>
+      <li><a href="#vehicules" class="mobile-nav-link">Véhicules <span>→</span></a></li>
+      <li><a href="#marques" class="mobile-nav-link">Marques <span>→</span></a></li>
+      <li><a href="#pourquoi-nous" class="mobile-nav-link">Pourquoi BIG S CAR <span>→</span></a></li>
+      <li><a href="#services" class="mobile-nav-link">Nos Services <span>→</span></a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact & Coordonnées <span>→</span></a></li>
+    </ul>
+
+    <div class="mobile-nav-footer">
+      <a href="https://wa.me/2250705884687" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-full">
+        <span>WhatsApp : +225 07 05 88 46 87</span>
+      </a>
+      <a href="#vehicules" class="btn btn-gold btn-full">Explorer le Showroom</a>
+    </div>
+  </aside>
+
+  <!-- ==================== SECTION HERO ==================== -->
+  <section class="hero-section" id="accueil">
+    <div class="hero-bg-container">
+      <img src="assets/images/hero-bg.jpg" alt="Showroom Prestige BIG S CAR" class="hero-bg-img">
+      <div class="hero-overlay"></div>
+      <div class="hero-spotlight"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span>Concession Automobile Haut de Gamme • Côte d'Ivoire</span>
+      </div>
+
+      <h1 class="hero-title">BIG S <span class="text-gradient-gold">CAR</span></h1>
+      <p class="hero-subtitle">L'excellence automobile à votre portée.</p>
+
+      <p class="hero-description">
+        Découvrez une sélection exclusive de voitures de luxe combinant élégance, puissance, confort et technologie. 
+        Des berlines diplomatiques aux supercars de prestige, accédez au sommet du raffinement automobile en Afrique de l'Ouest.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#vehicules" class="btn btn-gold">
+          <span>Découvrir nos véhicules</span>
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/2250705884687" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="color: #25D366;">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          </svg>
+          <span>Contacter BIG S CAR</span>
+        </a>
+      </div>
+
+      <!-- Indicateurs de confiance & prestige -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number text-gradient-gold">+50</span>
+          <span class="stat-label">Véhicules Disponibles</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number text-gradient-gold">100%</span>
+          <span class="stat-label">Certifiés & Garantis</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number text-gradient-gold">24/7</span>
+          <span class="stat-label">Assistance Conciergerie</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number text-gradient-gold">N°1</span>
+          <span class="stat-label">Prestige Côte d'Ivoire</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION « NOS VÉHICULES » ==================== -->
+  <section class="section vehicles-section" id="vehicules">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Catalogue Exclusif</span>
+        <h2 class="section-title">Notre sélection automobile</h2>
+        <p class="section-subtitle">
+          Des véhicules d'exception sélectionnés avec rigueur pour répondre aux exigences des dirigeants, diplomates et passionnés d'automobiles de prestige.
+        </p>
+      </div>
+
+      <!-- Interface de Filtrage Avancée -->
+      <div class="filter-wrapper fade-reveal">
+        <div class="filter-top-bar">
+          <!-- Barre de Recherche Réactive -->
+          <div class="search-box">
+            <svg class="search-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Rechercher une voiture (marque, modèle, motorisation)..." aria-label="Recherche de véhicule">
+            <span class="search-clear" id="searchClear" title="Effacer la recherche">✕</span>
+          </div>
+
+          <!-- Sélecteurs déroulants -->
+          <div class="filter-dropdowns">
+            <select id="categoryFilter" class="select-custom" aria-label="Filtrer par catégorie">
+              <option value="all">Toutes les catégories</option>
+              <option value="Berline Prestige">Berline Prestige</option>
+              <option value="SUV Haut de Gamme">SUV Haut de Gamme</option>
+              <option value="Coupé & Sportive">Coupé & Sportive</option>
+            </select>
+
+            <select id="priceFilter" class="select-custom" aria-label="Filtrer par tranche de prix">
+              <option value="all">Tous les prix</option>
+              <option value="under-90">Moins de 90M FCFA</option>
+              <option value="90-120">90M à 120M FCFA</option>
+              <option value="above-120">Plus de 120M FCFA</option>
+            </select>
+
+            <select id="fuelFilter" class="select-custom" aria-label="Filtrer par type de motorisation">
+              <option value="all">Toutes motorisations</option>
+              <option value="Essence">Essence Pure</option>
+              <option value="Hybride">Hybride & Électrifié</option>
+              <option value="MHEV">Micro-Hybride</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Ligne de Boutons de Filtre par Marque -->
+        <div class="brand-pills-row" role="tablist" aria-label="Filtrer par marque">
+          <button class="brand-pill active" data-brand="all">Toutes les marques</button>
+          <button class="brand-pill" data-brand="Mercedes-Benz">Mercedes-Benz</button>
+          <button class="brand-pill" data-brand="BMW">BMW</button>
+          <button class="brand-pill" data-brand="Audi">Audi</button>
+          <button class="brand-pill" data-brand="Porsche">Porsche</button>
+          <button class="brand-pill" data-brand="Range Rover">Range Rover</button>
+          <button class="brand-pill" data-brand="Bentley">Bentley</button>
+        </div>
+      </div>
+
+      <!-- Info Résultats & Réinitialisation -->
+      <div class="filter-results-info">
+        <span id="resultsCount">Chargement de la collection...</span>
+        <button class="reset-filters-btn" id="resetFiltersBtn">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          Réinitialiser tous les filtres
+        </button>
+      </div>
+
+      <!-- Grille Automobile Réactive (6 colonnes > 4 colonnes > 2 colonnes > 1 colonne) -->
+      <div class="car-grid" id="carGrid">
+        <!-- Rendu dynamique via js/script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MODAL DE DÉTAILS VÉHICULE ==================== -->
+  <div class="modal-overlay" id="vehicleModal" role="dialog" aria-modal="true" aria-labelledby="modalModel">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Fermer la boîte de dialogue">✕</button>
+      
+      <div class="modal-grid">
+        <div class="modal-media">
+          <img id="modalImage" src="" alt="Véhicule de luxe BIG S CAR">
+        </div>
+
+        <div class="modal-info-panel">
+          <span class="modal-brand-tag" id="modalBrand">Marque</span>
+          <h2 class="modal-car-title" id="modalModel">Modèle du Véhicule</h2>
+
+          <div class="modal-price-box">
+            <div>
+              <span style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">Tarif Clé en Main</span>
+              <div class="modal-price-val" id="modalPrice">0 FCFA</div>
+            </div>
+            <span class="badge badge-gold">Certifié BIG S CAR</span>
+          </div>
+
+          <!-- Tableau des Spécifications Techniques -->
+          <div class="modal-specs-table">
+            <div class="modal-spec-cell">
+              <span class="modal-spec-k">Année Modèle</span>
+              <div class="modal-spec-v" id="modalYear">2025</div>
+            </div>
+            <div class="modal-spec-cell">
+              <span class="modal-spec-k">Puissance Fiscale / Réelle</span>
+              <div class="modal-spec-v" id="modalPower">500 ch</div>
+            </div>
+            <div class="modal-spec-cell">
+              <span class="modal-spec-k">Motorisation</span>
+              <div class="modal-spec-v" id="modalEngine">V8 Twin-Turbo</div>
+            </div>
+            <div class="modal-spec-cell">
+              <span class="modal-spec-k">Transmission</span>
+              <div class="modal-spec-v" id="modalTransmission">Automatique</div>
+            </div>
+            <div class="modal-spec-cell">
+              <span class="modal-spec-k">Carburant</span>
+              <div class="modal-spec-v" id="modalFuel">Essence</div>
+            </div>
+            <div class="modal-spec-cell">
+              <span class="modal-spec-k">Catégorie</span>
+              <div class="modal-spec-v" id="modalCategory">Berline</div>
+            </div>
+            <div class="modal-spec-cell">
+              <span class="modal-spec-k">Vitesse Maximale</span>
+              <div class="modal-spec-v" id="modalSpeed">250 km/h</div>
+            </div>
+            <div class="modal-spec-cell">
+              <span class="modal-spec-k">Accélération (0-100)</span>
+              <div class="modal-spec-v" id="modalAccel">4.2s</div>
+            </div>
+            <div class="modal-spec-cell" style="grid-column: span 2;">
+              <span class="modal-spec-k">État du véhicule</span>
+              <div class="modal-spec-v" id="modalMileage">0 km (Neuf d'origine constructeur)</div>
+            </div>
+          </div>
+
+          <!-- Description Détaillée -->
+          <div class="modal-section-title">Présentation & Confort</div>
+          <p class="modal-desc-text" id="modalDesc"></p>
+
+          <div class="modal-section-title">Équipements & Finitions Notables</div>
+          <ul id="modalFeaturesList" style="list-style: none; margin-bottom: 20px; padding: 0;"></ul>
+
+          <div class="modal-usage-box">
+            <div style="font-size: 0.72rem; color: var(--gold-primary); text-transform: uppercase; font-weight: 700;">Positionnement & Utilisation Recommandée</div>
+            <div id="modalUsage" style="font-size: 0.88rem; color: var(--text-gray-100); margin-top: 4px;"></div>
+          </div>
+
+          <div class="modal-actions">
+            <a href="#" id="modalWhatsappBtn" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-full">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+              <span>Discuter et Réserver sur WhatsApp</span>
+            </a>
+            <a href="#" id="modalEmailBtn" class="btn btn-outline btn-full">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span>Envoyer une demande par Email</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SECTION « NOS MARQUES » ==================== -->
+  <section class="section brands-section" id="marques">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Manufactures d'Élite</span>
+        <h2 class="section-title">Les plus prestigieuses marques automobiles</h2>
+        <p class="section-subtitle">
+          BIG S CAR collabore directement avec les standards des plus grands constructeurs mondiaux pour vous fournir des véhicules d'exception.
+        </p>
+      </div>
+
+      <div class="brands-grid">
+        <!-- Mercedes-Benz -->
+        <div class="brand-card fade-reveal">
+          <div class="brand-card-top">
+            <div class="brand-card-icon">
+              <!-- Mercedes Star SVG -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2v10l8.66 5M12 12l-8.66 5"/>
+              </svg>
+            </div>
+            <span class="brand-card-count">En Showroom</span>
+          </div>
+          <h3 class="brand-card-name">Mercedes-Benz</h3>
+          <p class="brand-card-tagline">Élégance, confort et technologie allemande.</p>
+          <p class="brand-card-desc">
+            Mercedes-Benz représente une référence mondiale dans l'automobile premium. De la légendaire Classe S au dynamisme sauvage d'AMG, ces modèles s'adressent aux dirigeants et aux passionnés de performance absolue.
+          </p>
+          <button class="brand-card-btn" onclick="filterByBrand('Mercedes-Benz')">
+            <span>Explorer la gamme Mercedes</span> →
+          </button>
+        </div>
+
+        <!-- BMW -->
+        <div class="brand-card fade-reveal">
+          <div class="brand-card-top">
+            <div class="brand-card-icon">
+              <!-- BMW Propeller SVG -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2v20M2 12h20"/>
+                <path d="M12 2a10 10 0 0 1 10 10H12V2z" fill="rgba(201, 162, 39, 0.25)"/>
+                <path d="M12 22a10 10 0 0 1-10-10h10v10z" fill="rgba(201, 162, 39, 0.25)"/>
+              </svg>
+            </div>
+            <span class="brand-card-count">En Showroom</span>
+          </div>
+          <h3 class="brand-card-name">BMW</h3>
+          <p class="brand-card-tagline">Le plaisir de conduire poussé à son paroxysme.</p>
+          <p class="brand-card-desc">
+            Pionnier de la dynamique routière et des technologies de pointe. BMW associe un design avant-gardiste, la luxueuse Série 7 et la puissance électrisante de la division BMW Motorsport.
+          </p>
+          <button class="brand-card-btn" onclick="filterByBrand('BMW')">
+            <span>Explorer la gamme BMW</span> →
+          </button>
+        </div>
+
+        <!-- Audi -->
+        <div class="brand-card fade-reveal">
+          <div class="brand-card-top">
+            <div class="brand-card-icon">
+              <!-- Audi 4 Rings SVG -->
+              <svg width="36" height="36" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="12" r="6"/>
+                <circle cx="16" cy="12" r="6"/>
+                <circle cx="24" cy="12" r="6"/>
+                <circle cx="32" cy="12" r="6"/>
+              </svg>
+            </div>
+            <span class="brand-card-count">En Showroom</span>
+          </div>
+          <h3 class="brand-card-name">Audi</h3>
+          <p class="brand-card-tagline">L'avance par la technologie et la transmission quattro.</p>
+          <p class="brand-card-desc">
+            Fleuron du design contemporain épuré, Audi excelle dans l'équilibre entre ergonomie numérique de cockpit, raffinement des matériaux et suprématie de la transmission intégrale quattro.
+          </p>
+          <button class="brand-card-btn" onclick="filterByBrand('Audi')">
+            <span>Explorer la gamme Audi</span> →
+          </button>
+        </div>
+
+        <!-- Porsche -->
+        <div class="brand-card fade-reveal">
+          <div class="brand-card-top">
+            <div class="brand-card-icon">
+              <!-- Porsche Shield SVG -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2L4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3z"/>
+                <path d="M12 6v12M8 10h8"/>
+              </svg>
+            </div>
+            <span class="brand-card-count">En Showroom</span>
+          </div>
+          <h3 class="brand-card-name">Porsche</h3>
+          <p class="brand-card-tagline">L'ingénierie sportive légendaire de Stuttgart.</p>
+          <p class="brand-card-desc">
+            Chaque Porsche est imprégnée de l'ADN des 24 Heures du Mans. De l'intemporelle silhouette de la 911 au redoutable Cayenne Turbo GT, une expérience de conduite sans équivalent.
+          </p>
+          <button class="brand-card-btn" onclick="filterByBrand('Porsche')">
+            <span>Explorer la gamme Porsche</span> →
+          </button>
+        </div>
+
+        <!-- Range Rover -->
+        <div class="brand-card fade-reveal">
+          <div class="brand-card-top">
+            <div class="brand-card-icon">
+              <!-- Compass / Mountain Explorer SVG -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="rgba(201, 162, 39, 0.25)"/>
+              </svg>
+            </div>
+            <span class="brand-card-count">En Showroom</span>
+          </div>
+          <h3 class="brand-card-name">Range Rover</h3>
+          <p class="brand-card-tagline">L'aristocratie britannique du tout-terrain de prestige.</p>
+          <p class="brand-card-desc">
+            Le roi incontesté des SUV de luxe. Les finitions Autobiography et SV conjuguent une stature impériale, un habitacle feutré en cuir d'exception et une maîtrise tout-terrain souveraine.
+          </p>
+          <button class="brand-card-btn" onclick="filterByBrand('Range Rover')">
+            <span>Explorer la gamme Range Rover</span> →
+          </button>
+        </div>
+
+        <!-- Bentley -->
+        <div class="brand-card fade-reveal">
+          <div class="brand-card-top">
+            <div class="brand-card-icon">
+              <!-- Winged emblem SVG -->
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 5c-4.5 0-8 3-10 6 2 3 5.5 6 10 6s8-3 10-6c-2-3-5.5-6-10-6z"/>
+                <circle cx="12" cy="11" r="3" fill="rgba(201, 162, 39, 0.3)"/>
+              </svg>
+            </div>
+            <span class="brand-card-count">Ultra-Prestige</span>
+          </div>
+          <h3 class="brand-card-name">Bentley</h3>
+          <p class="brand-card-tagline">Haute couture artisanale et performances monumentales.</p>
+          <p class="brand-card-desc">
+            Fabriquées méticuleusement à Crewe en Angleterre, les créations Bentley marient l'artisanat du bois précieux et du cuir cousu main aux accélérations foudroyantes de moteurs W12 et V8 hybrides.
+          </p>
+          <button class="brand-card-btn" onclick="filterByBrand('Bentley')">
+            <span>Explorer la gamme Bentley</span> →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION « POURQUOI BIG S CAR ? » ==================== -->
+  <section class="section why-section" id="pourquoi-nous">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nos Engagements</span>
+        <h2 class="section-title">Pourquoi choisir BIG S CAR ?</h2>
+        <p class="section-subtitle">
+          Acquérir un véhicule d'exception chez BIG S CAR, c'est bénéficier d'un niveau d'exigence, de confidentialité et de sérénité inégalé.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <!-- 1. Véhicules Premium -->
+        <div class="why-card fade-reveal">
+          <div class="why-icon-box">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg>
+          </div>
+          <h3 class="why-title">Véhicules Premium</h3>
+          <p class="why-desc">
+            Une sélection rigoureuse des modèles les plus convoités du marché international, répondant aux critères d'élégance et de perfection esthétique les plus stricts.
+          </p>
+        </div>
+
+        <!-- 2. Qualité Garantie -->
+        <div class="why-card fade-reveal">
+          <div class="why-icon-box">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="why-title">Qualité Garantie</h3>
+          <p class="why-desc">
+            Chaque automobile subit un audit complet de plus de 120 points de contrôle mécaniques et électroniques avant toute remise de clés pour une sécurité totale.
+          </p>
+        </div>
+
+        <!-- 3. Accompagnement Personnalisé -->
+        <div class="why-card fade-reveal">
+          <div class="why-icon-box">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="why-title">Accompagnement Personnalisé</h3>
+          <p class="why-desc">
+            Un conseiller privé dédié est à votre disposition pour vous orienter selon vos habitudes de déplacement, vos goûts stylistiques et vos impératifs de protocole.
+          </p>
+        </div>
+
+        <!-- 4. Service Professionnel -->
+        <div class="why-card fade-reveal">
+          <div class="why-icon-box">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="why-title">Service Professionnel</h3>
+          <p class="why-desc">
+            Une expérience d'acquisition transparente, rapide et discrète. Nous prenons en charge toutes les formalités administratives et d'immatriculation à Abidjan.
+          </p>
+        </div>
+
+        <!-- 5. Disponibilité & Réactivité -->
+        <div class="why-card fade-reveal">
+          <div class="why-icon-box">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="why-title">Disponibilité Immédiate</h3>
+          <p class="why-desc">
+            Contact instantané via WhatsApp et email. Nos équipes vous accueillent pour des présentations privées sur rendez-vous 7 jours sur 7.
+          </p>
+        </div>
+
+        <!-- 6. Excellence & Prestige -->
+        <div class="why-card fade-reveal">
+          <div class="why-icon-box">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg>
+          </div>
+          <h3 class="why-title">Excellence & Prestige</h3>
+          <p class="why-desc">
+            Une réputation bâtie sur la confiance des chefs d'entreprises, diplomates et sportifs d'élite en Côte d'Ivoire et dans toute la sous-région ouest-africaine.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION « NOS SERVICES » ==================== -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Prestations Sur-Mesure</span>
+        <h2 class="section-title">Nos services automobiles</h2>
+        <p class="section-subtitle">
+          De la sélection en concession jusqu'à l'importation personnalisée, découvrez nos solutions complètes pensées pour les passionnés exigeants.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 : Vente de véhicules -->
+        <div class="service-card fade-reveal">
+          <div class="service-icon-box">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Vente de Véhicules de Luxe</h3>
+          <p class="service-desc">
+            Accédez à un showroom d'exception immédiatement disponible à Abidjan : berlines de prestige, SUV grand luxe et coupés supercars prêts pour la route.
+          </p>
+          <a href="#vehicules" class="service-link">Consulter le catalogue <span>→</span></a>
+        </div>
+
+        <!-- Service 2 : Importation de véhicules -->
+        <div class="service-card fade-reveal">
+          <div class="service-icon-box">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Importation sur Mesure</h3>
+          <p class="service-desc">
+            Acheminement sécurisé de véhicules haut de gamme depuis l'Allemagne, la France, les États-Unis ou Dubaï avec traçabilité complète et fret sécurisé.
+          </p>
+          <a href="https://wa.me/2250705884687?text=Bonjour%20BIG%20S%20CAR,%20je%20souhaite%20des%20renseignements%20sur%20l'importation%20d'un%20v%C3%A9hicule." target="_blank" rel="noopener noreferrer" class="service-link">Demande d'importation <span>→</span></a>
+        </div>
+
+        <!-- Service 3 : Conseil automobile -->
+        <div class="service-card fade-reveal">
+          <div class="service-icon-box">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Conseil Automobile & Stratégie</h3>
+          <p class="service-desc">
+            Expertise sur les tendances de décote, le coût d'entretien, la motorisation optimale et le choix de configuration pour valoriser votre investissement.
+          </p>
+          <a href="#contact" class="service-link">Parler à un expert <span>→</span></a>
+        </div>
+
+        <!-- Service 4 : Recherche de véhicule sur demande -->
+        <div class="service-card fade-reveal">
+          <div class="service-icon-box">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Recherche Exclusif sur Demande</h3>
+          <p class="service-desc">
+            Vous recherchez une édition limitée, une teinte spécifique ou une configuration particulière ? Notre réseau international déniche votre modèle sous 14 jours.
+          </p>
+          <a href="https://wa.me/2250705884687?text=Bonjour%20BIG%20S%20CAR,%20je%20recherche%20un%20mod%C3%A8le%20pr%C3%A9cis%20sur%20demande." target="_blank" rel="noopener noreferrer" class="service-link">Lancer une recherche <span>→</span></a>
+        </div>
+
+        <!-- Service 5 : Accompagnement à l'achat -->
+        <div class="service-card fade-reveal">
+          <div class="service-icon-box">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Accompagnement & Immatriculation</h3>
+          <p class="service-desc">
+            Gestion intégrale des démarches douanières, certificat de conformité, immatriculation officielle et assurance tous risques en Côte d'Ivoire.
+          </p>
+          <a href="#contact" class="service-link">Découvrir les formalités <span>→</span></a>
+        </div>
+
+        <!-- Service 6 : Conciergerie & Service Client -->
+        <div class="service-card fade-reveal">
+          <div class="service-icon-box">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Conciergerie VIP & Après-Vente</h3>
+          <p class="service-desc">
+            Livraison privée à domicile ou en entreprise, suivi technique prioritaire avec techniciens qualifiés et mise à disposition de chauffeurs protocolaires.
+          </p>
+          <a href="#contact" class="service-link">Prestations VIP <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION APPEL À L'ACTION (CTA) ==================== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-banner-card fade-reveal">
+        <div class="cta-banner-bg"></div>
+        <span class="section-tag" style="background: rgba(201, 162, 39, 0.2);">Showroom Privé</span>
+        <h2 class="cta-title">Votre prochaine voiture de rêve vous attend.</h2>
+        <p class="cta-desc">
+          Contactez directement les conseillers BIG S CAR et découvrez notre sélection de véhicules premium disponibles à Abidjan ou bénéficiez d'une recherche sur-mesure.
+        </p>
+
+        <div class="cta-btn-group">
+          <!-- WhatsApp direct -->
+          <a href="https://wa.me/2250705884687" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <span>Contacter sur WhatsApp (+225 07 05 88 46 87)</span>
+          </a>
+
+          <!-- Email direct -->
+          <a href="mailto:bigsccar@gmail.com" class="btn btn-outline">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>Nous envoyer un email</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION CONTACT & COORDONNÉES ==================== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Conciergerie Automobile</span>
+        <h2 class="section-title">Prendre contact avec BIG S CAR</h2>
+        <p class="section-subtitle">
+          Vous souhaitez réserver un véhicule, programmer un essai exclusif ou nous soumettre votre cahier des charges ? Nos experts vous répondent instantanément.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Carte Infos & Coordonnées -->
+        <div class="contact-info-card fade-reveal">
+          <div>
+            <div class="nav-logo" style="margin-bottom: 20px;">
+              <div class="logo-crest">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              </div>
+              <div class="logo-text-group">
+                <span class="logo-title">BIG S <span class="text-gold">CAR</span></span>
+                <span class="logo-subtitle">Concession Automobile de Luxe</span>
+              </div>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              BIG S CAR s’engage à offrir à chaque acquéreur une expérience fluide, confidentielle et sécurisée en Côte d'Ivoire.
+            </p>
+
+            <div class="contact-info-list">
+              <!-- WhatsApp -->
+              <div class="contact-info-item">
+                <div class="contact-item-icon">
+                  <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">WhatsApp Direct (Showroom)</div>
+                  <div class="contact-item-val">
+                    <a href="https://wa.me/2250705884687" target="_blank" rel="noopener noreferrer">+225 07 05 88 46 87</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="contact-info-item">
+                <div class="contact-item-icon">
+                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Courrier Électronique</div>
+                  <div class="contact-item-val">
+                    <a href="mailto:bigsccar@gmail.com">bigsccar@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Localisation -->
+              <div class="contact-info-item">
+                <div class="contact-item-icon">
+                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Localisation & Siège</div>
+                  <div class="contact-item-val">Abidjan, Côte d'Ivoire</div>
+                </div>
+              </div>
+
+              <!-- Horaires -->
+              <div class="contact-info-item">
+                <div class="contact-item-icon">
+                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Horaires d'Ouverture</div>
+                  <div class="contact-item-val" style="font-size: 0.95rem;">
+                    Lun - Sam : 08h00 - 19h30<br>
+                    <span style="color: var(--gold-primary); font-size: 0.84rem;">Dimanche : Privatisations & VIP sur rendez-vous</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/2250705884687" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-full">
+            <span>Démarrer une conversation WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Formulaire de Contact Interactif -->
+        <div class="contact-form-card fade-reveal">
+          <h3 class="form-title">Demande de Renseignement VIP</h3>
+          <p class="form-subtitle">Remplissez ce formulaire pour être immédiatement mis en relation avec notre conciergerie.</p>
+
+          <form id="vipContactForm">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="clientName" class="form-label">Votre Nom & Prénom *</label>
+                <input type="text" id="clientName" class="form-control" placeholder="Ex: Jean-Marc Kouassi" required>
+              </div>
+
+              <div class="form-group">
+                <label for="clientPhone" class="form-label">Numéro de Téléphone *</label>
+                <input type="tel" id="clientPhone" class="form-control" placeholder="Ex: +225 07 00 00 00 00" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="clientCarTarget" class="form-label">Véhicule ou Marque Souhaitée</label>
+              <select id="clientCarTarget" class="form-control">
+                <option value="Sélection Générale">Véhicule à déterminer selon conseil</option>
+                <option value="Mercedes-Benz Classe S">Mercedes-Benz Classe S (95 000 000 FCFA)</option>
+                <option value="Mercedes-AMG GT 63 S">Mercedes-AMG GT 63 S (125 000 000 FCFA)</option>
+                <option value="BMW Série 7 760i">BMW Série 7 760i (88 000 000 FCFA)</option>
+                <option value="BMW XM Label Red">BMW XM Label Red (138 000 000 FCFA)</option>
+                <option value="Audi RS Q8">Audi RS Q8 (98 000 000 FCFA)</option>
+                <option value="Audi A8 L Horch">Audi A8 L Horch (82 000 000 FCFA)</option>
+                <option value="Porsche Cayenne Turbo GT">Porsche Cayenne Turbo GT (118 000 000 FCFA)</option>
+                <option value="Porsche 911 Carrera GTS">Porsche 911 Carrera GTS (112 000 000 FCFA)</option>
+                <option value="Range Rover Autobiography">Range Rover Autobiography (122 000 000 FCFA)</option>
+                <option value="Range Rover Sport SV">Range Rover Sport SV (108 000 000 FCFA)</option>
+                <option value="Bentley Bentayga Azure">Bentley Bentayga Azure (175 000 000 FCFA)</option>
+                <option value="Bentley Continental GT Speed">Bentley Continental GT Speed (195 000 000 FCFA)</option>
+                <option value="Commande Spéciale / Importation">Autre commande sur mesure / Importation</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="clientMessage" class="form-label">Votre Message ou Spécifications Particulières</label>
+              <textarea id="clientMessage" class="form-control" placeholder="Précisez votre demande, date souhaitée pour une visite ou options attendues..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold btn-full">
+              <span>Envoyer ma demande vers WhatsApp</span>
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Colonne 1 : BIG S CAR -->
+        <div>
+          <div class="nav-logo">
+            <div class="logo-crest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <div class="logo-text-group">
+              <span class="logo-title">BIG S <span class="text-gold">CAR</span></span>
+              <span class="logo-subtitle">Automobiles de Luxe</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            L'excellence automobile à votre portée. Concessionnaire de prestige en Côte d'Ivoire dédié à la fourniture de supercars, limousines et SUV d'élite avec service d'accompagnement haut de gamme.
+          </p>
+        </div>
+
+        <!-- Colonne 2 : Navigation -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#accueil" class="footer-link">Accueil</a></li>
+            <li><a href="#vehicules" class="footer-link">Nos Véhicules</a></li>
+            <li><a href="#marques" class="footer-link">Grandes Marques</a></li>
+            <li><a href="#pourquoi-nous" class="footer-link">Pourquoi BIG S CAR</a></li>
+            <li><a href="#services" class="footer-link">Nos Services</a></li>
+            <li><a href="#contact" class="footer-link">Prendre Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Colonne 3 : Contact Direct -->
+        <div>
+          <h4 class="footer-col-title">Coordonnées</h4>
+          <ul class="footer-links">
+            <li>
+              <span style="color: var(--text-dim); display: block; font-size: 0.75rem; text-transform: uppercase;">Téléphone / WhatsApp</span>
+              <a href="https://wa.me/2250705884687" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: var(--gold-light); font-weight: 700;">
+                +225 07 05 88 46 87
+              </a>
+            </li>
+            <li style="margin-top: 8px;">
+              <span style="color: var(--text-dim); display: block; font-size: 0.75rem; text-transform: uppercase;">Email Officiel</span>
+              <a href="mailto:bigsccar@gmail.com" class="footer-link">
+                bigsccar@gmail.com
+              </a>
+            </li>
+            <li style="margin-top: 8px;">
+              <span style="color: var(--text-dim); display: block; font-size: 0.75rem; text-transform: uppercase;">Zone d'activité</span>
+              <span class="footer-link">Abidjan, Côte d'Ivoire & Afrique de l'Ouest</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Colonne 4 : Réseaux Sociaux -->
+        <div>
+          <h4 class="footer-col-title">Réseaux Sociaux</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+            Suivez nos arrivages hebdomadaires et l'actualité de nos modèles de collection.
+          </p>
+
+          <div class="footer-social-links">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/2250705884687" target="_blank" rel="noopener noreferrer" class="social-btn" title="WhatsApp BIG S CAR" aria-label="WhatsApp">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram BIG S CAR" aria-label="Instagram">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook BIG S CAR" aria-label="Facebook">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+              </svg>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok BIG S CAR" aria-label="TikTok">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 00-1-.08A6.34 6.34 0 003 15.66a6.34 6.34 0 0010.86 4.43v-7.39a8.16 8.16 0 005.73 2.27V11.5a4.86 4.86 0 01-3.45-1.52 4.84 4.84 0 01-1.36-3.29z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bas du footer avec Copyright & Mentions légales -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>BIG S CAR</strong> — Tous droits réservés. L'excellence automobile à votre portée.
+        </div>
+        <div class="footer-legal-links">
+          <a href="#contact">Mentions légales</a>
+          <a href="#contact">Politique de confidentialité</a>
+          <a href="#contact">Conditions d'achat</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== ÉLÉMENTS FLOTTANTS ==================== -->
+  <!-- Bouton WhatsApp Flottant -->
+  <a href="https://wa.me/2250705884687" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Contacter BIG S CAR sur WhatsApp">
+    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+    </svg>
+  </a>
+
+  <!-- Bouton Retour en Haut -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Revenir en haut de la page">
+    ↑
+  </button>
+
+  <!-- Notification Toast -->
+  <div class="toast-notice" id="toastNotice">
+    <span style="color: var(--gold-primary);">✓</span>
+    <span class="toast-text">Action effectuée</span>
+  </div>
+
+  <!-- Script JS Principal -->
+  <script src="js/script.js"></script>
+</body>
+</html>
