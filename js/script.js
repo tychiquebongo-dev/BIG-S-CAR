@@ -400,12 +400,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const toastNotice = document.getElementById('toastNotice');
   const contactForm = document.getElementById('vipContactForm');
 
-  // État des filtres
+  // État des filtres & Comparateur
   let currentBrand = 'all';
   let currentSearch = '';
   let currentCategory = 'all';
   let currentPrice = 'all';
   let currentFuel = 'all';
+  let compareList = [];
 
   // --- 3. Rendu Dynamique des Véhicules ---
   function renderVehicles(vehicles) {
@@ -443,13 +444,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('article');
       card.className = 'car-card fade-reveal';
       card.style.animationDelay = `${(index % 6) * 0.08}s`;
+      card.setAttribute('data-car-id', car.id);
 
       const whatsappText = encodeURIComponent(
         `Bonjour BIG S CAR, je suis intéressé par le véhicule : ${car.brand} ${car.model} (${car.priceFormatted}). Pouvez-vous me donner plus de détails sur sa disponibilité ?`
       );
       const whatsappUrl = `https://wa.me/2250705884687?text=${whatsappText}`;
+      const inCompare = compareList.includes(car.id);
 
       card.innerHTML = `
+        <div class="car-card-shine"></div>
         <div class="card-image-box">
           <img src="${car.image}" alt="${car.brand} ${car.model} - BIG S CAR" class="card-img" loading="lazy" onerror="this.onerror=null; this.src='assets/images/hero-bg.jpg';">
           <div class="card-badge-container">
@@ -473,8 +477,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="spec-chip-val">${car.power}</span>
             </div>
             <div class="spec-chip">
-              <span class="spec-chip-label">Moteur</span>
-              <span class="spec-chip-val" title="${car.engine}">${car.engine.split(' ')[0]}</span>
+              <span class="spec-chip-label">0-100</span>
+              <span class="spec-chip-val" style="color: var(--gold-light);">${car.acceleration.replace('0-100 km/h en ', '')}</span>
             </div>
             <div class="spec-chip">
               <span class="spec-chip-label">Boîte</span>
@@ -487,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </p>
 
           <div class="card-price-box">
-            <div class="price-label">Prix catalogue</div>
+            <div class="price-label">Tarif Clé en Main</div>
             <div class="price-value">${car.priceFormatted}</div>
           </div>
 
@@ -499,15 +503,40 @@ document.addEventListener('DOMContentLoaded', () => {
               </svg>
               Détails
             </button>
+            <button class="btn-card-compare ${inCompare ? 'in-compare' : ''}" data-compare-id="${car.id}" title="Comparer ce véhicule">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+              <span>${inCompare ? 'Comparé' : 'Comparer'}</span>
+            </button>
             <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="btn-card-contact" title="Discuter sur WhatsApp">
               <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
               </svg>
-              Contacter
             </a>
           </div>
         </div>
       `;
+
+      // 3D Tilt Interaction on Card
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        const shine = card.querySelector('.car-card-shine');
+        if (shine) {
+          shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.18) 0%, transparent 60%)`;
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
 
       carGrid.appendChild(card);
     });
@@ -517,6 +546,15 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener('click', () => {
         const carId = btn.getAttribute('data-car-id');
         openCarModal(carId);
+      });
+    });
+
+    // Écouteurs pour les boutons "Comparer"
+    document.querySelectorAll('.btn-card-compare').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const carId = btn.getAttribute('data-compare-id');
+        toggleVehicleInCompare(carId);
       });
     });
 
@@ -831,6 +869,629 @@ document.addEventListener('DOMContentLoaded', () => {
       reveals.forEach(el => el.classList.add('revealed'));
     }
   }
+
+  // ==================== 11. PRELOADER CINÉMATIQUE (AWWWARDS) ====================
+  function setupPreloader() {
+    const preloader = document.getElementById('luxuryPreloader');
+    const bar = document.getElementById('preloaderBar');
+    const counter = document.getElementById('preloaderCounter');
+    if (!preloader || !bar || !counter) return;
+
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += Math.floor(Math.random() * 8) + 3;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        bar.style.width = '100%';
+        counter.textContent = '100';
+
+        setTimeout(() => {
+          preloader.classList.add('curtains-open');
+          setTimeout(() => {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+              preloader.style.display = 'none';
+            }, 800);
+          }, 700);
+        }, 350);
+      } else {
+        bar.style.width = `${progress}%`;
+        counter.textContent = progress < 10 ? `0${progress}` : `${progress}`;
+      }
+    }, 45);
+  }
+
+  // ==================== 12. CURSEUR MAGNÉTIQUE AWWWARDS ====================
+  function setupCustomCursor() {
+    const cursor = document.getElementById('customCursor');
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    const label = document.getElementById('cursorLabel');
+    if (!cursor || !dot || !ring) return;
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    });
+
+    function renderCursor() {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+      requestAnimationFrame(renderCursor);
+    }
+    requestAnimationFrame(renderCursor);
+
+    // Hover triggers with contextual labels
+    function bindCursorHovers() {
+      const hoverTargets = [
+        { selector: '.btn-gold, .btn-whatsapp, .service-link', label: 'EXPLORER' },
+        { selector: '.btn-sound-rev, #studioSoundBtn, #soundToggleBtn', label: 'VROMBIR' },
+        { selector: '.car-card, .btn-card-detail', label: 'DÉCOUVRIR' },
+        { selector: '.btn-card-compare, #headerCompareBtn, #dockCompareTrigger', label: 'COMPARER' },
+        { selector: '.color-swatch', label: 'TEINTE' },
+        { selector: '.lighting-mode-btn', label: 'AMBIANCE' },
+        { selector: '.dock-item, .nav-link', label: 'ACCÈS' }
+      ];
+
+      hoverTargets.forEach(({ selector, label: txt }) => {
+        document.querySelectorAll(selector).forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            cursor.classList.add('active-hover');
+            if (label) label.textContent = txt;
+          });
+          el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('active-hover');
+            if (label) label.textContent = '';
+          });
+        });
+      });
+    }
+    bindCursorHovers();
+    window.refreshCursorHovers = bindCursorHovers;
+  }
+
+  // ==================== 13. SYNTHÉTISEUR AUDIO WEB V8 BI-TURBO ====================
+  let audioCtx = null;
+  let isSoundActive = false;
+  let engineIdleGain = null;
+
+  function initAudioContext() {
+    if (!audioCtx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) {
+        audioCtx = new AudioContext();
+      }
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+  }
+
+  function playEngineRevSound() {
+    initAudioContext();
+    if (!audioCtx) return;
+
+    try {
+      const now = audioCtx.currentTime;
+
+      // Oscillateur principal basse fréquence (V8 rumble)
+      const osc1 = audioCtx.createOscillator();
+      const osc2 = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      const filter = audioCtx.createBiquadFilter();
+
+      osc1.type = 'sawtooth';
+      osc2.type = 'triangle';
+
+      // Pitch sweep pour simuler l'accélération
+      osc1.frequency.setValueAtTime(55, now);
+      osc1.frequency.exponentialRampToValueAtTime(260, now + 0.35);
+      osc1.frequency.exponentialRampToValueAtTime(140, now + 0.7);
+      osc1.frequency.exponentialRampToValueAtTime(45, now + 1.2);
+
+      osc2.frequency.setValueAtTime(110, now);
+      osc2.frequency.exponentialRampToValueAtTime(520, now + 0.35);
+      osc2.frequency.exponentialRampToValueAtTime(280, now + 0.7);
+      osc2.frequency.exponentialRampToValueAtTime(90, now + 1.2);
+
+      // Filtre coupe-bas / passe-bas résonant
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(400, now);
+      filter.frequency.exponentialRampToValueAtTime(2800, now + 0.35);
+      filter.frequency.exponentialRampToValueAtTime(500, now + 1.1);
+      filter.Q.value = 4.5;
+
+      // Enveloppe de gain
+      gainNode.gain.setValueAtTime(0.01, now);
+      gainNode.gain.linearRampToValueAtTime(0.35, now + 0.15);
+      gainNode.gain.exponentialRampToValueAtTime(0.2, now + 0.7);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, now + 1.25);
+
+      osc1.connect(filter);
+      osc2.connect(filter);
+      filter.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+
+      osc1.start(now);
+      osc2.start(now);
+      osc1.stop(now + 1.3);
+      osc2.stop(now + 1.3);
+    } catch (e) {
+      console.warn('Audio non supporté :', e);
+    }
+  }
+
+  function toggleSoundAmbiance() {
+    initAudioContext();
+    isSoundActive = !isSoundActive;
+    const soundToggleBtn = document.getElementById('soundToggleBtn');
+
+    if (isSoundActive) {
+      if (soundToggleBtn) soundToggleBtn.classList.add('playing');
+      showToast('🔊 Son moteur V8 activé');
+      playEngineRevSound();
+    } else {
+      if (soundToggleBtn) soundToggleBtn.classList.remove('playing');
+      showToast('🔇 Son moteur coupé');
+    }
+  }
+
+  function setupSoundEngine() {
+    const soundToggleBtn = document.getElementById('soundToggleBtn');
+    if (soundToggleBtn) {
+      soundToggleBtn.addEventListener('click', toggleSoundAmbiance);
+    }
+
+    const heroRevBtn = document.getElementById('heroRevBtn');
+    if (heroRevBtn) {
+      heroRevBtn.addEventListener('click', () => {
+        heroRevBtn.classList.add('revving');
+        playEngineRevSound();
+        showToast('🔥 V8 Bi-turbo en pleine accélération !');
+        setTimeout(() => heroRevBtn.classList.remove('revving'), 1300);
+      });
+    }
+
+    const studioSoundBtn = document.getElementById('studioSoundBtn');
+    if (studioSoundBtn) {
+      studioSoundBtn.addEventListener('click', () => {
+        playEngineRevSound();
+        showToast('🏁 Accélération acoustique lancée');
+      });
+    }
+  }
+
+  // ==================== 14. STUDIO 360° & CONFIGURATEUR VIRTUEL ====================
+  function setupStudio360() {
+    const studioCarSelect = document.getElementById('studioCarSelect');
+    const studioStage = document.getElementById('studioStage');
+    const studioCarImg = document.getElementById('studioCarImg');
+    const studioColorOverlay = document.getElementById('studioColorOverlay');
+    const studioBadgeTitle = document.getElementById('studioBadgeTitle');
+    const studioBadgePrice = document.getElementById('studioBadgePrice');
+    const studioBadgeAccel = document.getElementById('studioBadgeAccel');
+    const studioBadgePower = document.getElementById('studioBadgePower');
+    const studioBadgeSpeed = document.getElementById('studioBadgeSpeed');
+    const toggleHeadlightsBtn = document.getElementById('toggleHeadlightsBtn');
+    const headlightBeam = document.getElementById('headlightBeam');
+    const headlightsStatus = document.getElementById('headlightsStatus');
+    const swatchName = document.getElementById('swatchName');
+    const studioWhatsappBtn = document.getElementById('studioWhatsappBtn');
+    const studioCompareAddBtn = document.getElementById('studioCompareAddBtn');
+
+    const STUDIO_MODELS = {
+      'merc-amg-gt': {
+        title: 'Mercedes-AMG GT 63 S Coupé',
+        price: '125 000 000 FCFA',
+        accel: '3.2s',
+        power: '639 ch',
+        speed: '315 km/h',
+        image: 'assets/images/mercedes-amg-gt.jpg'
+      },
+      'bentley-cont-gt': {
+        title: 'Bentley Continental GT Speed',
+        price: '195 000 000 FCFA',
+        accel: '3.2s',
+        power: '782 ch',
+        speed: '335 km/h',
+        image: 'assets/images/bentley-continental-gt.jpg'
+      },
+      'bmw-xm': {
+        title: 'BMW XM Label Red Édition Ultime',
+        price: '138 000 000 FCFA',
+        accel: '3.8s',
+        power: '748 ch',
+        speed: '290 km/h',
+        image: 'assets/images/bmw-xm.jpg'
+      },
+      'porsche-911': {
+        title: 'Porsche 911 Carrera GTS',
+        price: '112 000 000 FCFA',
+        accel: '3.0s',
+        power: '541 ch',
+        speed: '312 km/h',
+        image: 'assets/images/porsche-911.jpg'
+      },
+      'range-rover-auto': {
+        title: 'Range Rover Autobiography P530',
+        price: '122 000 000 FCFA',
+        accel: '4.6s',
+        power: '530 ch',
+        speed: '250 km/h',
+        image: 'assets/images/range-rover-autobiography.jpg'
+      }
+    };
+
+    let currentColorName = "Teinte d'Origine";
+
+    function updateStudioWhatsApp() {
+      if (!studioWhatsappBtn) return;
+      const currentKey = studioCarSelect ? studioCarSelect.value : 'merc-amg-gt';
+      const modelData = STUDIO_MODELS[currentKey];
+      const text = encodeURIComponent(
+        `Bonjour BIG S CAR, je viens de configurer un véhicule sur votre Studio 360° :\n• Modèle : ${modelData.title}\n• Prix affiché : ${modelData.price}\n• Teinte sélectionnée : ${currentColorName}\n\nPouvez-vous me confirmer les modalités de réservation et de visite VIP ?`
+      );
+      studioWhatsappBtn.href = `https://wa.me/2250705884687?text=${text}`;
+    }
+
+    if (studioCarSelect) {
+      studioCarSelect.addEventListener('change', () => {
+        const key = studioCarSelect.value;
+        const car = STUDIO_MODELS[key];
+        if (!car) return;
+
+        if (studioCarImg) {
+          studioCarImg.style.opacity = '0';
+          setTimeout(() => {
+            studioCarImg.src = car.image;
+            studioCarImg.alt = `${car.title} - Studio 360 BIG S CAR`;
+            studioCarImg.style.opacity = '1';
+          }, 200);
+        }
+
+        if (studioBadgeTitle) studioBadgeTitle.textContent = car.title;
+        if (studioBadgePrice) studioBadgePrice.textContent = car.price;
+        if (studioBadgeAccel) studioBadgeAccel.textContent = car.accel;
+        if (studioBadgePower) studioBadgePower.textContent = car.power;
+        if (studioBadgeSpeed) studioBadgeSpeed.textContent = car.speed;
+
+        updateStudioWhatsApp();
+      });
+    }
+
+    // Ambiance lumineuse
+    document.querySelectorAll('.lighting-mode-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lighting-mode-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const mode = btn.getAttribute('data-light');
+
+        if (studioStage) {
+          studioStage.className = 'studio-stage';
+          if (mode !== 'studio') {
+            studioStage.classList.add(`theme-${mode}`);
+          }
+        }
+      });
+    });
+
+    // Toggle phares
+    let headlightsOn = true;
+    if (toggleHeadlightsBtn && headlightBeam) {
+      toggleHeadlightsBtn.addEventListener('click', () => {
+        headlightsOn = !headlightsOn;
+        if (headlightsOn) {
+          headlightBeam.classList.remove('off');
+          toggleHeadlightsBtn.classList.add('active');
+          if (headlightsStatus) headlightsStatus.textContent = 'Projecteurs Allumés';
+        } else {
+          headlightBeam.classList.add('off');
+          toggleHeadlightsBtn.classList.remove('active');
+          if (headlightsStatus) headlightsStatus.textContent = 'Projecteurs Éteints';
+        }
+      });
+    }
+
+    // Nuancier de peintures
+    const COLOR_MAP = {
+      default: { color: 'transparent', opacity: '0', label: "Teinte d'Origine Constructeur" },
+      gold: { color: 'rgba(236, 200, 88, 0.45)', opacity: '0.45', label: "Or Impérial 24 Carats" },
+      obsidian: { color: 'rgba(10, 10, 14, 0.65)', opacity: '0.65', label: "Noir Obsidian Profond" },
+      emerald: { color: 'rgba(6, 78, 59, 0.55)', opacity: '0.55', label: "Vert Émeraude British Racing" },
+      sapphire: { color: 'rgba(30, 58, 138, 0.55)', opacity: '0.55', label: "Bleu Saphir Nuit Métallisé" },
+      crimson: { color: 'rgba(153, 27, 27, 0.55)', opacity: '0.55', label: "Rouge Rosso Magma" }
+    };
+
+    document.querySelectorAll('.color-swatch').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.color-swatch').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const key = btn.getAttribute('data-color');
+        const cfg = COLOR_MAP[key] || COLOR_MAP.default;
+
+        currentColorName = cfg.label;
+        if (swatchName) swatchName.textContent = cfg.label;
+
+        if (studioColorOverlay) {
+          studioColorOverlay.style.backgroundColor = cfg.color;
+          studioColorOverlay.style.opacity = cfg.opacity;
+        }
+
+        updateStudioWhatsApp();
+      });
+    });
+
+    // Comparer le véhicule depuis le studio
+    if (studioCompareAddBtn) {
+      studioCompareAddBtn.addEventListener('click', () => {
+        const currentKey = studioCarSelect ? studioCarSelect.value : 'merc-amg-gt';
+        toggleVehicleInCompare(currentKey);
+      });
+    }
+
+    updateStudioWhatsApp();
+  }
+
+  // ==================== 15. COMPARATEUR DE VÉHICULES VIP ====================
+  function toggleVehicleInCompare(carId) {
+    const idx = compareList.indexOf(carId);
+    if (idx > -1) {
+      compareList.splice(idx, 1);
+      showToast('Véhicule retiré du comparateur');
+    } else {
+      if (compareList.length >= 3) {
+        showToast('Limite atteinte : 3 véhicules maximum simultanément');
+        openCompareDrawer();
+        return;
+      }
+      compareList.push(carId);
+      showToast('Véhicule ajouté au comparateur VIP');
+    }
+
+    updateCompareUI();
+  }
+  window.toggleVehicleInCompare = toggleVehicleInCompare;
+
+  function updateCompareUI() {
+    const count = compareList.length;
+
+    // Badges compteurs
+    const countBadge = document.getElementById('compareCountBadge');
+    const dockBadge = document.getElementById('dockCompareBadge');
+    const drawerNum = document.getElementById('drawerCountNum');
+
+    if (countBadge) countBadge.textContent = count;
+    if (dockBadge) dockBadge.textContent = count;
+    if (drawerNum) drawerNum.textContent = count;
+
+    // Mise à jour de l'état des boutons sur les cartes
+    document.querySelectorAll('.btn-card-compare').forEach(btn => {
+      const cid = btn.getAttribute('data-compare-id');
+      if (compareList.includes(cid)) {
+        btn.classList.add('in-compare');
+        btn.querySelector('span').textContent = 'Comparé';
+      } else {
+        btn.classList.remove('in-compare');
+        btn.querySelector('span').textContent = 'Comparer';
+      }
+    });
+
+    renderCompareDrawer();
+  }
+
+  function renderCompareDrawer() {
+    const drawerBody = document.getElementById('compareDrawerBody');
+    const shareBtn = document.getElementById('compareShareWaBtn');
+    if (!drawerBody) return;
+
+    if (compareList.length === 0) {
+      drawerBody.innerHTML = `
+        <div class="compare-empty-state">
+          <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin: 0 auto 16px auto; color: var(--gold-primary);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+          <h4 style="font-size: 1.15rem; color: #fff; margin-bottom: 8px;">Votre banc de comparaison est vide</h4>
+          <p style="color: var(--text-dim); max-width: 440px; margin: 0 auto;">
+            Cliquez sur le bouton « Comparer » présent sur chaque carte de véhicule pour opposer jusqu'à 3 modèles côte à côte.
+          </p>
+        </div>
+      `;
+      if (shareBtn) shareBtn.style.display = 'none';
+      return;
+    }
+
+    if (shareBtn) shareBtn.style.display = 'inline-flex';
+
+    const selectedCars = compareList
+      .map(id => VEHICLES_DATA.find(c => c.id === id))
+      .filter(Boolean);
+
+    drawerBody.innerHTML = `
+      <div class="compare-cards-grid">
+        ${selectedCars.map(car => `
+          <div class="compare-col-card">
+            <button class="compare-col-remove" onclick="toggleVehicleInCompare('${car.id}')" title="Retirer de la comparaison">✕</button>
+            <img src="${car.image}" alt="${car.brand} ${car.model}" class="compare-col-img">
+            <div class="compare-col-title">${car.brand} ${car.model}</div>
+            <div class="compare-col-price">${car.priceFormatted}</div>
+            
+            <div class="compare-spec-row">
+              <span>0-100 km/h</span>
+              <strong style="color: var(--gold-light);">${car.acceleration}</strong>
+            </div>
+            <div class="compare-spec-row">
+              <span>Puissance</span>
+              <strong>${car.power}</strong>
+            </div>
+            <div class="compare-spec-row">
+              <span>Motorisation</span>
+              <strong>${car.engine}</strong>
+            </div>
+            <div class="compare-spec-row">
+              <span>Vitesse de pointe</span>
+              <strong>${car.topSpeed}</strong>
+            </div>
+            <div class="compare-spec-row">
+              <span>Transmission</span>
+              <strong>${car.transmission}</strong>
+            </div>
+            <div class="compare-spec-row">
+              <span>Carburant</span>
+              <strong>${car.fuel}</strong>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    // Met à jour le message WhatsApp de partage
+    if (shareBtn) {
+      const summaryText = selectedCars.map(c => `• ${c.brand} ${c.model} (${c.priceFormatted})`).join('\n');
+      const text = encodeURIComponent(
+        `Bonjour BIG S CAR, je compare actuellement ces véhicules de votre catalogue :\n${summaryText}\n\nPourriez-vous me conseiller sur le meilleur choix selon mes critères ?`
+      );
+      shareBtn.href = `https://wa.me/2250705884687?text=${text}`;
+    }
+  }
+
+  function openCompareDrawer() {
+    const drawer = document.getElementById('compareDrawer');
+    const overlay = document.getElementById('compareDrawerOverlay');
+    if (drawer) drawer.classList.add('open');
+    if (overlay) overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCompareDrawer() {
+    const drawer = document.getElementById('compareDrawer');
+    const overlay = document.getElementById('compareDrawerOverlay');
+    if (drawer) drawer.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function setupComparator() {
+    const headerCompareBtn = document.getElementById('headerCompareBtn');
+    if (headerCompareBtn) headerCompareBtn.addEventListener('click', openCompareDrawer);
+
+    const dockCompareTrigger = document.getElementById('dockCompareTrigger');
+    if (dockCompareTrigger) dockCompareTrigger.addEventListener('click', openCompareDrawer);
+
+    const compareCloseBtn = document.getElementById('compareCloseBtn');
+    if (compareCloseBtn) compareCloseBtn.addEventListener('click', closeCompareDrawer);
+
+    const compareDrawerOverlay = document.getElementById('compareDrawerOverlay');
+    if (compareDrawerOverlay) compareDrawerOverlay.addEventListener('click', closeCompareDrawer);
+
+    const compareClearBtn = document.getElementById('compareClearBtn');
+    if (compareClearBtn) {
+      compareClearBtn.addEventListener('click', () => {
+        compareList = [];
+        updateCompareUI();
+        showToast('Sélection de comparaison effacée');
+      });
+    }
+
+    renderCompareDrawer();
+  }
+
+  // ==================== 16. SIMULATEUR DE FINANCEMENT VIP ====================
+  function setupFinanceSimulator() {
+    const carSelect = document.getElementById('financeCarSelect');
+    const depositSlider = document.getElementById('financeDepositSlider');
+    const depositPctLabel = document.getElementById('financeDepositPct');
+    const depositAmountLabel = document.getElementById('financeDepositAmount');
+    const monthsSlider = document.getElementById('financeMonthsSlider');
+    const monthsValLabel = document.getElementById('financeMonthsVal');
+    const monthlyValLabel = document.getElementById('financeMonthlyVal');
+    const sumPrice = document.getElementById('financeSumPrice');
+    const sumDeposit = document.getElementById('financeSumDeposit');
+    const sumBalance = document.getElementById('financeSumBalance');
+    const sumMonths = document.getElementById('financeSumMonths');
+    const whatsappBtn = document.getElementById('financeWhatsappBtn');
+
+    if (!carSelect || !depositSlider || !monthsSlider) return;
+
+    function formatFCFA(num) {
+      return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA';
+    }
+
+    function calculateFinance() {
+      const price = parseFloat(carSelect.value) || 125000000;
+      const selectedOption = carSelect.options[carSelect.selectedIndex];
+      const carName = selectedOption ? selectedOption.getAttribute('data-name') : 'Véhicule d’exception';
+      const depositPct = parseInt(depositSlider.value, 10);
+      const months = parseInt(monthsSlider.value, 10);
+
+      const depositAmount = price * (depositPct / 100);
+      const balance = price - depositAmount;
+
+      // Taux d'intérêt annuel préférentiel luxe 6.5%
+      const annualRate = 0.065;
+      const totalInterest = balance * annualRate * (months / 12);
+      const totalFinanced = balance + totalInterest;
+      const monthlyPayment = totalFinanced / months;
+
+      if (depositPctLabel) depositPctLabel.textContent = `${depositPct}%`;
+      if (depositAmountLabel) depositAmountLabel.textContent = formatFCFA(depositAmount);
+      if (monthsValLabel) {
+        const years = (months / 12).toFixed(months % 12 === 0 ? 0 : 1);
+        monthsValLabel.textContent = `${months} mois (${years} an${years > 1 ? 's' : ''})`;
+      }
+      if (monthlyValLabel) {
+        monthlyValLabel.innerHTML = `${Math.round(monthlyPayment).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} <small>FCFA / mois</small>`;
+      }
+
+      if (sumPrice) sumPrice.textContent = formatFCFA(price);
+      if (sumDeposit) sumDeposit.textContent = formatFCFA(depositAmount);
+      if (sumBalance) sumBalance.textContent = formatFCFA(balance);
+      if (sumMonths) sumMonths.textContent = `${months} mensualités`;
+
+      if (whatsappBtn) {
+        const text = encodeURIComponent(
+          `Bonjour BIG S CAR, je souhaite souscrire à une simulation de financement VIP :\n• Modèle : ${carName}\n• Valeur catalogue : ${formatFCFA(price)}\n• Apport initial : ${depositPct}% (${formatFCFA(depositAmount)})\n• Durée : ${months} mois\n• Mensualité estimée : ${formatFCFA(monthlyPayment)} / mois\n\nMerci de m'indiquer la faisabilité et les pièces requises.`
+        );
+        whatsappBtn.href = `https://wa.me/2250705884687?text=${text}`;
+      }
+    }
+
+    carSelect.addEventListener('change', calculateFinance);
+    depositSlider.addEventListener('input', calculateFinance);
+    monthsSlider.addEventListener('input', calculateFinance);
+
+    calculateFinance();
+  }
+
+  // ==================== 17. HERO SPOTLIGHT PARALLAX ====================
+  function setupHeroParallax() {
+    const heroSpotlight = document.getElementById('heroSpotlight');
+    const heroSec = document.getElementById('accueil');
+    if (!heroSpotlight || !heroSec) return;
+
+    heroSec.addEventListener('mousemove', (e) => {
+      const rect = heroSec.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      heroSpotlight.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(201, 162, 39, 0.22) 0%, transparent 60%)`;
+    });
+  }
+
+  // Initialisations de l'expérience Awwwards
+  setupPreloader();
+  setupCustomCursor();
+  setupSoundEngine();
+  setupStudio360();
+  setupComparator();
+  setupFinanceSimulator();
+  setupHeroParallax();
 
   // Initialisation du catalogue
   renderVehicles(VEHICLES_DATA);
